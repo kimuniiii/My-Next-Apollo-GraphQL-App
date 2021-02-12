@@ -1,9 +1,15 @@
 import React, { FC } from "react";
+import { Button } from "../../components/atoms/Button";
 
 const Home: FC = () => {
   return (
     <>
-      <p>Hello World1</p>
+      <p>下のボタンをクリックして下さい</p>
+      <Button
+        text="Button"
+        isDisabled={false}
+        onClick={() => alert("クリック")}
+      />
     </>
   );
 };
