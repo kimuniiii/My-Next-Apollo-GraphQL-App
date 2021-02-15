@@ -19,6 +19,6 @@ $ yarn add @storybook/cli
 1-2. 下記コマンドをたたいてStorybookのベースを生成する
 $ npx -p @storybook/cli sb init
 
-1-3. 下記コマンドをたたいて、Storybookを起動してみる
+1-3. 下記コマンドをたたいて、Storybookを起動する
 $ yarn storybook
 ```
