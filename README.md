@@ -22,5 +22,5 @@ $ yarn add @storybook/cli
 $ npx -p @storybook/cli sb init
 
 1-3. 下記コマンドをたたいて、サンプルを起動してみる
-$ start-storybook -p 6006
+$ yarn storybook
 ```
