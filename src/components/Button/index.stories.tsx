@@ -12,9 +12,9 @@ type ButtonProps = React.ComponentProps<typeof Button>;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
-export const Buttons = Template.bind({});
+export const Basic = Template.bind({});
 
-Buttons.args = {
+Basic.args = {
   text: "Button",
   isDisabled: false,
 };
