@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import styled, { css } from 'styled-components';
 
-import { ColorPalette, Tokens } from '../../styles/Color';
+import { Tokens } from '../../styles/Color';
 
 type Props = {
   type: 'text' | 'email' | 'password' | 'tel';
