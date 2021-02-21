@@ -1,5 +1,7 @@
-import React, { FC } from "react";
-import { Button } from "../../components/Button";
+import React, { FC } from 'react';
+
+import { Button } from '../../components/Button';
+import { Checkbox } from '../../components/Checkbox';
 
 const Home: FC = () => {
   return (
@@ -8,8 +10,10 @@ const Home: FC = () => {
       <Button
         text="Button"
         isDisabled={false}
-        onClick={() => alert("クリック")}
+        onClick={() => alert('ボタンをクリックしました')}
       />
+      <p>下のチェックボックスをチェックしてください</p>
+      <Checkbox name="Check" value="Check" text="Check" disabled={false} />
     </>
   );
 };
