@@ -1,58 +1,95 @@
-import React, { useRef, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 
-type Props = {
+type ActiveTab = 'first' | 'second' | 'third' | 'fourth';
+
+type TabItem = {
+  id: string;
   title: string;
-  content: JSX.Element[];
+  order: ActiveTab;
+  mainInfo: string;
 };
 
-export const Tab: React.FC<Props> = ({ title, content }) => {
-  console.log({ title, content });
-  const randomStr = () => Math.random().toString(16).substring(2);
-  console.log(randomStr());
-  const randomId: { current: string[] } = useRef(['']);
-  console.log(randomId);
-  const renderCount: { current: number } = useRef(0);
-  console.log(renderCount);
-  const [tabState, setTabState] = useState(randomId.current[0]);
-  console.log({ tabState, setTabState });
+type Props = {
+  initialActiveContent: string;
+  tabItem: TabItem[];
+};
+
+export const Tab: FC<Props> = ({ initialActiveContent, tabItem }) => {
+  const [activeTab, setActiveTab] = useState<ActiveTab>('first');
+  const [pcActiveContent, setPcActiveContent] = useState<string>(
+    initialActiveContent
+  );
+
+  const handleClick = (clickTab: ActiveTab, content: string) => {
+    setActiveTab(clickTab);
+    setPcActiveContent(content);
+  };
 
   return (
-    <TabContainer>
-      <div className="tab">
-        <ul className="tablist" role="tablist">
-          {/* TODO map関数で回してレンダリングする */}
-          <li role="presentation">
-            <a href="#tab1" aria-controls="tab1" aria-selected="true">
-              タブ1
-            </a>
-          </li>
-          <li role="presentation">
-            <a href="#tab2" aria-controls="tab2" aria-selected="false">
-              タブ2
-            </a>
-          </li>
-          <li role="presentation">
-            <a href="#tab3" aria-controls="tab3" aria-selected="false">
-              タブ3
-            </a>
-          </li>
-        </ul>
-        <div className="tabpanel">
-          {/* TODO map関数で回してレンダリングする */}
-          <div id="tab1">
-            <p>タブ1のコンテンツ</p>
-          </div>
-          <div id="tab2">
-            <p>タブ2のコンテンツ</p>
-          </div>
-          <div id="tab3">
-            <p>タブ3のコンテンツ</p>
-          </div>
-        </div>
-      </div>
-    </TabContainer>
+    <StTabRoot>
+      {tabItem !== undefined && (
+        <StTabWrapper>
+          <StTabContainer>
+            {tabItem.map(({ id, title, order, mainInfo }) => {
+              return (
+                <StTabList
+                  role="tablist"
+                  key={id}
+                  isActive={activeTab === order}
+                  onClick={() => handleClick(order, mainInfo)}
+                >
+                  <StTabListTitle role="tab">{title}</StTabListTitle>
+                </StTabList>
+              );
+            })}
+          </StTabContainer>
+          {pcActiveContent !== '' && (
+            <StTabContent role="tabpanel">{pcActiveContent}</StTabContent>
+          )}
+        </StTabWrapper>
+      )}
+    </StTabRoot>
   );
 };
 
-const TabContainer = styled.div``;
+const StTabRoot = styled.div`
+  padding: 0 16px;
+`;
+
+const StTabWrapper = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 2px solid #1c5db5;
+`;
+
+const StTabContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  line-height: 1.5;
+`;
+
+const StTabList = styled.div<{ isActive: boolean }>`
+  cursor: pointer;
+  font-size: 20px;
+  width: 25%;
+  height: 36px;
+  color: ${({ isActive }) => (isActive ? '#222222' : '#fff')};
+  background-color: ${({ isActive }) => (isActive ? '#fff' : '#1c5db5')};
+  border-bottom: ${({ isActive }) => isActive && '#fff'};
+
+  &:hover {
+    opacity: 0.9;
+  }
+`;
+
+const StTabListTitle = styled.div`
+  text-align: center;
+`;
+
+const StTabContent = styled.div`
+  color: #222222;
+  width: 100%;
+  padding: 8px 0 8px 16px;
+`;
