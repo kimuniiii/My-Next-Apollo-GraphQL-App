@@ -2,6 +2,9 @@ import { MdKeyboardArrowUp } from 'react-icons/md';
 import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 
+import { ColorPalette } from '../../styles/Color';
+import { IconPosition } from '../IconPosition';
+
 type Props = {
   title: string;
   mainInfo: string | JSX.Element;
@@ -17,11 +20,11 @@ export const Accordion: FC<Props> = ({
 }) => {
   return (
     <StAccordionContainer>
-      <StArrowUpPosition>
-        <StArrowUpIcon isActive={isActive}>
+      <IconPosition top={16} right={4}>
+        <StArrowUpWrapper isActive={isActive}>
           <MdKeyboardArrowUp size={24} />
-        </StArrowUpIcon>
-      </StArrowUpPosition>
+        </StArrowUpWrapper>
+      </IconPosition>
       <StTitleWrapper>
         <StTitle isActive={isActive} onClick={onClick}>
           {title}
@@ -39,6 +42,7 @@ const StAccordionContainer = styled.nav`
 `;
 
 const StTitleWrapper = styled.div`
+  font-weight: bold;
   padding-top: 16px;
 `;
 
@@ -46,20 +50,14 @@ const StTitle = styled.div<{ isActive: boolean }>`
   cursor: pointer;
   user-select: none;
   height: 36px;
-  color: #222222;
+  color: ${ColorPalette.Black};
   border-bottom: ${({ isActive }) =>
-    isActive ? '4px solid skyblue' : '4px solid gray'};
+    isActive
+      ? `4px solid ${ColorPalette.Blue50}`
+      : `4px solid ${ColorPalette.DarkGray}`};
 `;
 
-const StArrowUpPosition = styled.div`
-  position: relative;
-`;
-
-const StArrowUpIcon = styled.div<{ isActive: boolean }>`
-  position: absolute;
-  top: 16px;
-  right: 4px;
-
+const StArrowUpWrapper = styled.div<{ isActive: boolean }>`
   ${({ isActive }) =>
     isActive
       ? css`

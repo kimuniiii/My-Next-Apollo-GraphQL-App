@@ -8,9 +8,9 @@ export default {
   component: Accordion,
 } as Meta;
 
-type ButtonProps = ComponentProps<typeof Accordion>;
+type Props = ComponentProps<typeof Accordion>;
 
-const Template: Story<ButtonProps> = (args) => {
+const Template: Story<Props> = () => {
   const [isActive1, setIsActive1] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
@@ -63,5 +63,3 @@ const Template: Story<ButtonProps> = (args) => {
 };
 
 export const Basic = Template.bind({});
-
-Basic.args = {};
