@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { Icon } from './';
 
 export default {
-  title: 'Icon',
+  title: 'atoms/Icon',
   component: Icon,
 } as Meta;
 

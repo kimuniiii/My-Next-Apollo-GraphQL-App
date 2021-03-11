@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { TextInput } from './';
 
 export default {
-  title: 'TextInput',
+  title: 'atoms/TextInput',
   component: TextInput,
 } as Meta;
 
