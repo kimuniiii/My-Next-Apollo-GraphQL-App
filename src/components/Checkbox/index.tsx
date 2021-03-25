@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 
-import { ColorPalette } from '../../styles/Color';
+import { ColorPalette } from 'src/styles/Color';
 
 type Props = {
   name: string;

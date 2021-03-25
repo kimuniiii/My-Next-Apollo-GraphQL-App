@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 type Props = {
   text: string;
@@ -7,17 +7,17 @@ type Props = {
   onClick: () => void;
 };
 
-export const Button: React.FC<Props> = ({ text = "", isDisabled, onClick }) => {
+export const Button: React.FC<Props> = ({ text = '', isDisabled, onClick }) => {
   return (
     <>
-      <StyledButton isDisabled={isDisabled} onClick={onClick}>
+      <StButton isDisabled={isDisabled} onClick={onClick}>
         {text}
-      </StyledButton>
+      </StButton>
     </>
   );
 };
 
-const StyledButton = styled.button<Pick<Props, "isDisabled">>`
+const StButton = styled.button<Pick<Props, 'isDisabled'>>`
   background-color: #ffffff;
   color: #67c5ff;
   border: solid 2px #67c5ff;

@@ -2,8 +2,8 @@ import { MdKeyboardArrowUp } from 'react-icons/md';
 import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 
-import { ColorPalette } from '../../styles/Color';
-import { IconPosition } from '../IconPosition';
+import { ColorPalette } from 'src/styles/Color';
+import { IconPosition } from 'src/components/IconPosition';
 
 type Props = {
   title: string;
