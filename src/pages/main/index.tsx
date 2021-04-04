@@ -1,33 +1,46 @@
-import React, { FC } from 'react';
+import { NextPage } from 'next';
+import React from 'react';
+import styled from 'styled-components';
 
-import { Button } from '../../components/Button';
-import { Checkbox } from '../../components/Checkbox';
-import { Tab } from '../../components/Tab';
-
-const Home: FC = () => {
+const Home: NextPage = () => {
   return (
-    <>
-      <p>下のボタンをクリックして下さい</p>
-      <Button
-        text="Button"
-        isDisabled={false}
-        onClick={() => alert('ボタンをクリックしました')}
-      />
-      <p>下のチェックボックスをチェックしてください</p>
-      <Checkbox name="Check" value="Check" text="Check" disabled={false} />
-      <p>タブ</p>
-      <Tab
-        title="タブ"
-        content={[
-          <Button
-            text="Button"
-            isDisabled={false}
-            onClick={() => alert('ボタンをクリックしました')}
-          />,
-        ]}
-      />
-    </>
+    <StHomeRoot>
+      <StFirstSection>section1</StFirstSection>
+      <StSecondSection>section2</StSecondSection>
+      <StThirdSection>section3</StThirdSection>
+    </StHomeRoot>
   );
 };
 
 export default Home;
+
+const StHomeRoot = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StFirstSection = styled.section`
+  max-width: 1200px;
+  width: 100%;
+  height: 675px;
+  background-color: #2e80ff;
+  opacity: 0.9;
+`;
+
+const StSecondSection = styled.section`
+  max-width: 1200px;
+  width: 100%;
+  height: 675px;
+  background-color: #222222;
+  opacity: 0.9;
+`;
+
+const StThirdSection = styled.section`
+  max-width: 1200px;
+  width: 100%;
+  height: 675px;
+  background-color: #ffd91a;
+  opacity: 0.9;
+`;
