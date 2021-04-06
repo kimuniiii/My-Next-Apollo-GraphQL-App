@@ -13,7 +13,17 @@ const Error: NextPage<Props> = ({ title, errorCode }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      {errorCode}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <h1 style={{ color: 'red' }}>{errorCode}</h1>
+        <p>エラーが発生しているので修正してください</p>
+      </div>
     </>
   );
 };
