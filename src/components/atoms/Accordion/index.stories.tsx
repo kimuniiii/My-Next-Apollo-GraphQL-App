@@ -1,7 +1,7 @@
 import React, { useState, ComponentProps } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Accordion } from './';
+import { Accordion } from '.';
 
 export default {
   title: 'atoms/Accordion',

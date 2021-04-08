@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 
 import { ColorPalette } from 'src/styles/Color';
-import { IconPosition } from 'src/components/IconPosition';
+import { IconPosition } from 'src/components/atoms/IconPosition';
 
 type Props = {
   title: string;

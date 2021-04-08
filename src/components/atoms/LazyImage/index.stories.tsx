@@ -1,7 +1,7 @@
 import React, { ComponentProps } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { LazyImage } from './';
+import { LazyImage } from '.';
 
 export default {
   title: 'atoms/LazyImage',

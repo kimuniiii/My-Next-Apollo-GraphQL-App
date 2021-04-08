@@ -1,7 +1,7 @@
 import React, { ComponentProps } from 'react';
 
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Checkbox } from './';
+import { Checkbox } from '.';
 
 export default {
   title: 'atoms/Checkbox',

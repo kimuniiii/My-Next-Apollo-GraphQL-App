@@ -5,7 +5,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { IconPosition } from './';
+import { IconPosition } from '.';
 
 export default {
   title: 'atoms/IconPosition',
