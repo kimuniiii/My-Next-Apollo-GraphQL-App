@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
-const Home: NextPage = () => {
+const TopPage: NextPage = () => {
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default TopPage;
 
 const StTitle = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
