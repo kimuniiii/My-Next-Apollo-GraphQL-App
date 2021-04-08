@@ -1,16 +1,22 @@
 import React from 'react';
-import App, { AppContext } from 'next/app';
-export default class extends App {
-  static async getInitialProps({ Component, ctx }: AppContext) {
-    let pageProps = {};
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-    return { pageProps };
-  }
+// import App, { AppContext } from 'next/app';
+import { createGlobalStyle } from 'styled-components';
 
-  render() {
-    const { Component, pageProps } = this.props;
-    return <Component {...pageProps} />;
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-}
+`;
+
+const CommonApp = ({ Component, pageProps }: any) => {
+  return (
+    <>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </>
+  );
+};
+
+export default CommonApp;
