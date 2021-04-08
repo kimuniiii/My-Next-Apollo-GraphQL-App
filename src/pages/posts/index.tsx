@@ -1,7 +1,8 @@
 import { NextPage } from 'next';
-import Link from 'next/link';
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
+import styled from 'styled-components';
 
 const FirstPost: NextPage = () => {
   return (
@@ -9,12 +10,16 @@ const FirstPost: NextPage = () => {
       <Head>
         <title>First Post</title>
       </Head>
-      <h1>First Post</h1>
+      <StTitle>First Post</StTitle>
       <Link href="/main">
-        <a>Back To Home</a>
+        <a>Topページへ遷移します</a>
       </Link>
     </>
   );
 };
 
 export default FirstPost;
+
+const StTitle = styled.h1`
+  color: ${({ theme }) => theme.colors.primary};
+`;
