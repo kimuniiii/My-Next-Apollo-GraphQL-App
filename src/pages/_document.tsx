@@ -1,5 +1,7 @@
 import { ServerStyleSheet } from 'styled-components';
 import Document from 'next/document';
+
+import { DefaultLayout } from 'src/components/layouts';
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
     const sheet = new ServerStyleSheet();
@@ -25,5 +27,9 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render() {
+    return <DefaultLayout />;
   }
 }
