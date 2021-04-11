@@ -4,24 +4,28 @@ import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
+import { Template } from 'src/components/organisms/Template';
+
 const TopPage: NextPage = () => {
   return (
     <StRoot>
       <Head>
         <title>Topページ</title>
       </Head>
-      <StFirstSection>
-        <StTitle>Topページ</StTitle>
-        <Link href="/posts">
-          <a>First Postページへ遷移します</a>
-        </Link>
-      </StFirstSection>
-      <StSecondSection>
-        <h1>Slide2</h1>
-      </StSecondSection>
-      <StThirdSection>
-        <h1>Slide3</h1>
-      </StThirdSection>
+      <Template>
+        <StFirstSection>
+          <StTitle>Topページ</StTitle>
+          <Link href="/posts" passHref>
+            <StFirstLink>投稿リストページへ遷移します</StFirstLink>
+          </Link>
+        </StFirstSection>
+        <StSecondSection>
+          <h1>Slide2</h1>
+        </StSecondSection>
+        <StThirdSection>
+          <h1>Slide3</h1>
+        </StThirdSection>
+      </Template>
     </StRoot>
   );
 };
@@ -57,6 +61,8 @@ const StThirdSection = styled.section`
   height: 100vh;
   background-color: #6bdcff;
 `;
+
+const StFirstLink = styled.a``;
 
 const StTitle = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
