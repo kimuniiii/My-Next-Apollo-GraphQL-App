@@ -4,21 +4,45 @@ import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
-const FirstPost: NextPage = () => {
+import { Template } from 'src/components/organisms/Template';
+
+const PostLink: NextPage = () => {
   return (
     <>
       <Head>
-        <title>First Post</title>
+        <title>投稿リストページ</title>
       </Head>
-      <StTitle>First Post</StTitle>
-      <Link href="/main">
-        <a>Topページへ遷移します</a>
-      </Link>
+      <Template>
+        <StPostLinkRoot>
+          <StTitle>投稿リストページ</StTitle>
+          {linkData.map(({ title }) => (
+            <Link
+              as={`posts/detail/${title}`}
+              href={`/posts/detail?title=${title}`}
+            >
+              <a style={{ paddingBottom: '16px' }}>{title}</a>
+            </Link>
+          ))}
+        </StPostLinkRoot>
+      </Template>
     </>
   );
 };
 
-export default FirstPost;
+export default PostLink;
+
+const linkData = [
+  { title: 'Title1' },
+  { title: 'Title2' },
+  { title: 'Title3' },
+];
+
+const StPostLinkRoot = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const StTitle = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
