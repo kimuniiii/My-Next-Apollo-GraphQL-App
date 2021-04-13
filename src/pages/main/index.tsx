@@ -20,10 +20,10 @@ const TopPage: NextPage = () => {
           </Link>
         </StFirstSection>
         <StSecondSection>
-          <h1>Slide2</h1>
+          <h1 css="color: red">Slide2</h1>
         </StSecondSection>
         <StThirdSection>
-          <h1>Slide3</h1>
+          <h1 css="color: yellow">Slide3</h1>
         </StThirdSection>
       </Template>
     </StRoot>
