@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import styled from 'styled-components';
+import React, { FC, useState, useEffect, useRef } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 type Props = {
-  className?: string;
+  className: string;
   src: string;
   alt: string;
   width: number;
@@ -16,10 +16,40 @@ export const LazyImage: FC<Props> = ({
   width,
   height,
 }) => {
+  const imageRef = useRef<HTMLImageElement>(null!);
+  const [imageSrc, setImageSrc] = useState('');
+
+  let observer: IntersectionObserver;
+
+  useEffect(() => {
+    if (imageRef && imageSrc !== src) {
+      observer = new IntersectionObserver(
+        (entries: IntersectionObserverEntry[]) => {
+          entries.forEach((entry) => {
+            // 画像が画面内に入ってきたらpropsで渡したsrc属性に更新をかける
+            if (entry.intersectionRatio > 0 && entry.isIntersecting) {
+              setImageSrc(src);
+              observer.unobserve(imageRef.current);
+            }
+          });
+        },
+      );
+      // 交差を監視したい要素を「observe」する
+      observer.observe(imageRef.current);
+    }
+
+    return () => {
+      if (observer && observer.unobserve) {
+        observer.unobserve(imageRef.current);
+      }
+    };
+  }, [src, imageRef]);
+
   return (
     <StImage
       className={className}
-      src={src}
+      ref={imageRef}
+      src={imageSrc}
       alt={alt}
       width={width}
       height={height}
@@ -27,22 +57,19 @@ export const LazyImage: FC<Props> = ({
   );
 };
 
+const loaded = keyframes`
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
 const StImage = styled.img`
-  display: block;
-  max-width: 1000px;
+  max-width: 1200px;
+  // 画面幅に応じて画像がリサイズされるように設定
   width: 100%;
   height: auto;
-
-  @keyframes loaded {
-    0% {
-      opacity: 0.1;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  &.loaded {
-    animation: loaded 300ms ease-in-out;
-  }
+  animation: ${loaded} 0.3s ease-out;
 `;
