@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
+import { ColorPalette } from 'src/styles/Color';
+
 export const Header: FC = () => {
   return <StHeaderRoot>Header</StHeaderRoot>;
 };
@@ -11,7 +13,6 @@ const StHeaderRoot = styled.header`
   align-items: center;
   width: 100%;
   height: 48px;
-  background-color: #222;
-  color: #fff;
-  opacity: 0.7;
+  background-color: ${ColorPalette.Green};
+  color: ${ColorPalette.Black};
 `;

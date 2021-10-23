@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { Template } from 'src/components/organisms/Template';
+import { Template } from 'src/components/templates/Template';
 
 const PostDetail = () => {
   const router = useRouter();

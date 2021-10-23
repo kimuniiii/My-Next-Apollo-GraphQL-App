@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Template } from 'src/components/organisms/Template';
+import { Template } from 'src/components/templates/Template';
 
 const TopPage: NextPage = () => {
   return (

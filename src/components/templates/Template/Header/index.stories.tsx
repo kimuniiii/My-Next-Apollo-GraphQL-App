@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Footer } from './';
+import { Header } from '.';
 
 export default {
-  title: 'organisms/Template/Footer',
-  component: Footer,
+  title: 'organisms/Template/Header',
+  component: Header,
 } as Meta;
 
-const Template: Story = () => <Footer />;
+const Template: Story = () => <Header />;
 
 export const Basic = Template.bind({});

@@ -1,12 +1,10 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
+import { ColorPalette } from 'src/styles/Color';
+
 export const Footer: FC = () => {
-  return (
-    <StFooterRoot>
-      <StFooterContent>Footer</StFooterContent>
-    </StFooterRoot>
-  );
+  return <StFooterRoot>Footer</StFooterRoot>;
 };
 
 const StFooterRoot = styled.footer`
@@ -15,9 +13,6 @@ const StFooterRoot = styled.footer`
   align-items: center;
   width: 100%;
   height: 48px;
-  background-color: #222;
-  color: #fff;
-  opacity: 0.7;
+  background-color: ${ColorPalette.Green};
+  color: ${ColorPalette.Black};
 `;
-
-const StFooterContent = styled.div``;

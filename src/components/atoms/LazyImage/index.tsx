@@ -59,7 +59,7 @@ const loaded = keyframes`
 `;
 
 const StImage = styled.img`
-  max-width: 1200px;
+  /* max-width: 1200px; */
   // 画面幅に応じて画像がリサイズされるように設定
   width: 100%;
   height: auto;

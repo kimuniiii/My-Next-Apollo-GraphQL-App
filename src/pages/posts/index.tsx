@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Template } from 'src/components/organisms/Template';
+import { Template } from 'src/components/templates/Template';
 
 const PostLink: NextPage = () => {
   return (
@@ -16,10 +16,7 @@ const PostLink: NextPage = () => {
         <StPostLinkRoot>
           <StTitle>投稿リストページ</StTitle>
           {linkData.map(({ title }) => (
-            <Link
-              as={`posts/detail/${title}`}
-              href={`/posts/detail?title=${title}`}
-            >
+            <Link as={`posts/detail/${title}`} href={`/posts/detail?title=${title}`}>
               <a style={{ paddingBottom: '16px' }}>{title}</a>
             </Link>
           ))}
@@ -31,11 +28,7 @@ const PostLink: NextPage = () => {
 
 export default PostLink;
 
-const linkData = [
-  { title: 'Title1' },
-  { title: 'Title2' },
-  { title: 'Title3' },
-];
+const linkData = [{ title: 'Title1' }, { title: 'Title2' }, { title: 'Title3' }];
 
 const StPostLinkRoot = styled.div`
   display: flex;
