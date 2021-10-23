@@ -15,15 +15,15 @@ const TopPage: NextPage = () => {
       <Template>
         <StFirstSection>
           <StTitle>Topページ</StTitle>
-          <Link href="/posts" passHref>
+          <Link href='/posts' passHref>
             <StFirstLink>投稿リストページへ遷移します</StFirstLink>
           </Link>
         </StFirstSection>
         <StSecondSection>
-          <h1 css="color: red">Slide2</h1>
+          <h1 css='color: red'>Slide2</h1>
         </StSecondSection>
         <StThirdSection>
-          <h1 css="color: yellow">Slide3</h1>
+          <h1 css='color: yellow'>Slide3</h1>
         </StThirdSection>
       </Template>
     </StRoot>
