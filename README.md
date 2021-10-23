@@ -1,24 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 概要
 
-## Getting Started
+Apollo Client + GraphQL 練習用リポジトリ
 
-First, run the development server:
+## 技術選定
 
-```bash
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Storybook環境構築
-
-```
-1-1. 下記コマンドをたたいてStorybookをインストールする
-$ yarn add @storybook/cli
-
-1-2. 下記コマンドをたたいてStorybookのベースを生成する
-$ npx -p @storybook/cli sb init
-
-1-3. 下記コマンドをたたいて、Storybookを起動する
-$ yarn storybook
-```
+- React
+- TypeScript
+- Next.js
+- Recoil
+- Apollo Client
+- GraphQL
