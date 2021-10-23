@@ -1,13 +1,13 @@
 {
-  "name": "my-react-typescript-next-app",
+  "name": "my-next-apollo-graphgl-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
+    "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "next start",
     "test": "jest",
-    "storybook": "start-storybook -s ./public -p 6006",
+    "storybook": "start-storybook -s ./public -p 6060",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -43,12 +43,5 @@
     "react-test-renderer": "^17.0.1",
     "ts-jest": "^26.5.1",
     "typescript": "^4.1.2"
-  },
-  "prettier": {
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "all",
-    "bracketSpacing": true,
-    "arrowParens": "always"
   }
 }
