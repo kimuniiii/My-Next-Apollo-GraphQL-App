@@ -2,20 +2,14 @@ import React, { FC, useState, useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 type Props = {
-  className: string;
+  className?: string;
   src: string;
   alt: string;
   width: number;
   height: number;
 };
 
-export const LazyImage: FC<Props> = ({
-  className,
-  src,
-  alt,
-  width,
-  height,
-}) => {
+export const LazyImage: FC<Props> = ({ className, src, alt, width, height }) => {
   const imageRef = useRef<HTMLImageElement>(null!);
   const [imageSrc, setImageSrc] = useState('');
 
@@ -23,17 +17,15 @@ export const LazyImage: FC<Props> = ({
 
   useEffect(() => {
     if (imageRef && imageSrc !== src) {
-      observer = new IntersectionObserver(
-        (entries: IntersectionObserverEntry[]) => {
-          entries.forEach((entry) => {
-            // 画像が画面内に入ってきたらpropsで渡したsrc属性に更新をかける
-            if (entry.intersectionRatio > 0 && entry.isIntersecting) {
-              setImageSrc(src);
-              observer.unobserve(imageRef.current);
-            }
-          });
-        },
-      );
+      observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          // 画像が画面内に入ってきたらpropsで渡したsrc属性に更新をかける
+          if (entry.intersectionRatio > 0 && entry.isIntersecting) {
+            setImageSrc(src);
+            observer.unobserve(imageRef.current);
+          }
+        });
+      });
       // 交差を監視したい要素を「observe」する
       observer.observe(imageRef.current);
     }
