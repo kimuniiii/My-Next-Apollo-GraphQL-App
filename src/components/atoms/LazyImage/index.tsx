@@ -37,6 +37,13 @@ export const LazyImage: FC<Props> = ({ className, src, alt, width, height }) => 
     };
   }, [src, imageRef]);
 
+  /**
+   * 画像が読み込まれた時にアニメーションを適用させるイベントハンドラ
+   */
+  const onImageLoad = (event: React.ChangeEvent<HTMLImageElement>): void => {
+    event.target.classList.add('image-loaded');
+  };
+
   return (
     <StImage
       className={className}
@@ -45,6 +52,7 @@ export const LazyImage: FC<Props> = ({ className, src, alt, width, height }) => 
       alt={alt}
       width={width}
       height={height}
+      onLoad={onImageLoad}
     />
   );
 };
@@ -59,9 +67,19 @@ const loaded = keyframes`
 `;
 
 const StImage = styled.img`
-  /* max-width: 1200px; */
   // 画面幅に応じて画像がリサイズされるように設定
+  // 画像のレスポンシブ対応のお決まりのパターン
   width: 100%;
   height: auto;
-  animation: ${loaded} 0.3s ease-out;
+  /* ホバーをなめらかにするため */
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+
+  &.image-loaded {
+    animation: ${loaded} 1s ease-out;
+  }
 `;
