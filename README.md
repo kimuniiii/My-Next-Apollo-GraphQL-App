@@ -7,6 +7,7 @@ Apollo Client + GraphQL 練習用リポジトリ
 - React
 - TypeScript
 - Next.js
+- Emotion
 - Recoil
 - Apollo Client
 - GraphQL
