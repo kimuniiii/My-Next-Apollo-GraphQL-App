@@ -1,7 +1,7 @@
 import { ServerStyleSheet } from 'styled-components';
 import Document from 'next/document';
 
-import { DefaultLayout } from 'src/components/layouts';
+import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
