@@ -31,22 +31,25 @@ export const LazyImage = forwardRef<HTMLDivElement, LazyImageProps>(
     const [isVisible, setIsVisible] = useState(false);
     const pictureRef = useRef<HTMLPictureElement>(null);
 
-    const observer = useMemo(
-      () =>
-        new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            setIsVisible(entry.isIntersecting);
-          });
-        }, options),
-      [options],
-    );
+    let observer: IntersectionObserver;
 
     useEffect(() => {
       if (pictureRef?.current === null) return;
+
+      observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          setIsVisible(entry.isIntersecting);
+        });
+      }, options);
+
       observer.observe(pictureRef.current);
-      return () => observer.disconnect();
-    }, [pictureRef, options, observer]);
+
+      return () => {
+        if (pictureRef?.current === null) return;
+        observer.unobserve(pictureRef.current);
+      };
+    }, [pictureRef, options]);
 
     /**
      * 画像が読み込まれた時にアニメーションを適用させるイベントハンドラ
