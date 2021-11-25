@@ -6,8 +6,8 @@ type Props = {
   height?: string;
 };
 
-export const Skelton: FC<Props> = ({ width, height }) => {
-  return <StSkelton width={width} height={height} />;
+export const Skeleton: FC<Props> = ({ width, height }) => {
+  return <StSkeleton width={width} height={height} />;
 };
 
 const skeltonLoading = keyframes`
@@ -19,15 +19,10 @@ const skeltonLoading = keyframes`
   }
 `;
 
-const StSkelton = styled.div<Props>`
+const StSkeleton = styled.div<Props>`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   overflow: hidden;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(200, 200, 200, 0.6),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(200, 200, 200, 0.6), transparent);
   animation: ${skeltonLoading} 0.3s infinite;
 `;

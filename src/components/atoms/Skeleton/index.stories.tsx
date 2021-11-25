@@ -1,16 +1,16 @@
 import React, { ComponentProps } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Skelton } from '.';
+import { Skeleton } from '.';
 
 export default {
-  title: 'atoms/Skelton',
-  component: Skelton,
+  title: 'atoms/Skeleton',
+  component: Skeleton,
 } as Meta;
 
-type Props = ComponentProps<typeof Skelton>;
+type Props = ComponentProps<typeof Skeleton>;
 
-const Template: Story<Props> = (args) => <Skelton {...args} />;
+const Template: Story<Props> = (args) => <Skeleton {...args} />;
 
 export const Basic = Template.bind({});
 
