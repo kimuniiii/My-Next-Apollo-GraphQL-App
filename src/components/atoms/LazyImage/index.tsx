@@ -31,25 +31,63 @@ export const LazyImage = forwardRef<HTMLDivElement, LazyImageProps>(
     const [isVisible, setIsVisible] = useState(false);
     const pictureRef = useRef<HTMLPictureElement>(null);
 
-    let observer: IntersectionObserver;
+    // MEMO : スーパーリロードしたらエラーになる
+    // const observer = useMemo(() => {
+    //   return typeof window !== undefined
+    //     ? new IntersectionObserver((entries) => {
+    //         entries.forEach((entry) => {
+    //           if (!entry.isIntersecting) return;
+    //           setIsVisible(entry.isIntersecting);
+    //         });
+    //       }, options)
+    //     : null;
+    // }, [options]);
 
+    // useEffect(() => {
+    //   if (pictureRef?.current === null) return;
+    //   if (observer === null) return;
+    //   observer.observe(pictureRef.current);
+    //   return () => observer.disconnect();
+    // }, [pictureRef, options, observer]);
+
+    //! MEMO : 2つ目の実装方法。最適な実装方法
     useEffect(() => {
       if (pictureRef?.current === null) return;
 
-      observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+      const pictureElement = pictureRef.current;
+
+      const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           setIsVisible(entry.isIntersecting);
         });
       }, options);
 
-      observer.observe(pictureRef.current);
+      observer.observe(pictureElement);
 
-      return () => {
-        if (pictureRef?.current === null) return;
-        observer.unobserve(pictureRef.current);
-      };
+      return () => observer.unobserve(pictureElement);
     }, [pictureRef, options]);
+
+    //! MEMO : 3つ目の実装方法
+    // let observer: IntersectionObserver;
+
+    // useEffect(() => {
+    //   if (pictureRef?.current === null) return;
+
+    //   observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+    //     entries.forEach((entry) => {
+    //       if (!entry.isIntersecting) return;
+    //       setIsVisible(entry.isIntersecting);
+    //     });
+    //   }, options);
+
+    //   observer.observe(pictureRef.current);
+
+    //   return () => {
+    //     if (pictureRef?.current === null) return;
+    //     observer.unobserve(pictureRef.current);
+    //   };
+    // }, [pictureRef, options]);
 
     /**
      * 画像が読み込まれた時にアニメーションを適用させるイベントハンドラ
