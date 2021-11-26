@@ -5,4 +5,11 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-module.exports = withPlugins([withBundleAnalyzer]);
+// next / image で外部URLの画像を使用するときに必要
+const imageLoader = {
+  images: {
+    domains: ['picsum.photos'],
+  },
+};
+
+module.exports = withPlugins([withBundleAnalyzer, imageLoader]);
