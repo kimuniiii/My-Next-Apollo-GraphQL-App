@@ -38,9 +38,9 @@ type HeadTemplateProps = {
    */
   dynamicOgp?: {
     ogpUrl?: string;
+    ogpImageUrl?: string;
     ogpImageWidth: number;
     ogpImageHeight: number;
-    ogpImageUrl?: string;
   };
 };
 
@@ -58,7 +58,7 @@ export const HeadTemplate: NextPage<HeadTemplateProps> = ({
     ogpImageWidth: 1200,
     ogpImageHeight: 630,
     ogpUrl: 'https://my-next-apollo-graph-ql-app.vercel.app',
-    ogpImageUrl: 'https://my-next-apollo-graph-ql-app.vercel.app/public/images/company_top.png',
+    ogpImageUrl: 'https://my-next-apollo-graph-ql-app.vercel.app/images/company_top.png',
   },
 }) => {
   console.log(pageOrigin);
