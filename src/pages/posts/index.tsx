@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Template } from 'src/components/templates/Template';
+import { CommonTemplate } from 'src/components/templates/CommonTemplate';
 
 const PostLink: NextPage = () => {
   return (
@@ -12,7 +12,7 @@ const PostLink: NextPage = () => {
       <Head>
         <title>投稿リストページ</title>
       </Head>
-      <Template>
+      <CommonTemplate>
         <StPostLinkRoot>
           <StTitle>投稿リストページ</StTitle>
           {linkData.map(({ title }) => (
@@ -21,7 +21,7 @@ const PostLink: NextPage = () => {
             </Link>
           ))}
         </StPostLinkRoot>
-      </Template>
+      </CommonTemplate>
     </>
   );
 };

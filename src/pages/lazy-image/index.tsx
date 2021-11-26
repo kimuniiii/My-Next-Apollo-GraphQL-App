@@ -1,19 +1,20 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
-import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components';
 
 import { LazyImage } from 'src/components/atoms/LazyImage';
-import { Template } from 'src/components/templates/Template';
+import { CommonTemplate } from 'src/components/templates/CommonTemplate';
+import { HeadTemplate } from 'src/components/templates/HeadTemplate';
 
 const ImagePracticeComponent: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>画像最適化検証ページ</title>
-      </Head>
-      <Template>
+      <HeadTemplate
+        pageTitle='画像最適化検証ページ'
+        pageDescription='画像の最適化の検証を行うための動作確認ページです'
+      />
+      <CommonTemplate>
         <StFlexColumn>
           <h1>通常のimgタグ</h1>
           <StImageContainer>
@@ -80,7 +81,7 @@ const ImagePracticeComponent: NextPage = () => {
             })}
           </StImageContainer>
         </StFlexColumn>
-      </Template>
+      </CommonTemplate>
     </>
   );
 };

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Template } from 'src/components/templates/Template';
+import { CommonTemplate } from 'src/components/templates/CommonTemplate';
 
 const TopPage: NextPage = () => {
   return (
@@ -12,7 +12,7 @@ const TopPage: NextPage = () => {
       <Head>
         <title>Topページ</title>
       </Head>
-      <Template>
+      <CommonTemplate>
         <StFirstSection>
           <StTitle>Topページ</StTitle>
           <Link href='/posts' passHref>
@@ -25,7 +25,7 @@ const TopPage: NextPage = () => {
         <StThirdSection>
           <h1 css='color: yellow'>Slide3</h1>
         </StThirdSection>
-      </Template>
+      </CommonTemplate>
     </StRoot>
   );
 };

@@ -1,15 +1,15 @@
 import { useRouter } from 'next/router';
 
-import { Template } from 'src/components/templates/Template';
+import { CommonTemplate } from 'src/components/templates/CommonTemplate';
 
 const PostDetail = () => {
   const router = useRouter();
 
   return (
-    <Template>
+    <CommonTemplate>
       <h1>{router.query.title}</h1>
       <p>投稿詳細ページです</p>
-    </Template>
+    </CommonTemplate>
   );
 };
 

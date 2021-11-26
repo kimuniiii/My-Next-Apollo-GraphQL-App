@@ -7,7 +7,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const Template: VFC<Props> = ({ children }) => {
+export const CommonTemplate: VFC<Props> = ({ children }) => {
   return (
     <>
       <Header />
