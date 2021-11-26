@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import 'intersection-observer';
@@ -31,42 +31,41 @@ export const LazyImage = forwardRef<HTMLDivElement, LazyImageProps>(
     const [isVisible, setIsVisible] = useState(false);
     const pictureRef = useRef<HTMLPictureElement>(null);
 
-    // MEMO : スーパーリロードしたらエラーになる
-    // const observer = useMemo(() => {
-    //   return typeof window !== undefined
-    //     ? new IntersectionObserver((entries) => {
-    //         entries.forEach((entry) => {
-    //           if (!entry.isIntersecting) return;
-    //           setIsVisible(entry.isIntersecting);
-    //         });
-    //       }, options)
-    //     : null;
-    // }, [options]);
+    const observer = useMemo(() => {
+      return typeof window !== 'undefined'
+        ? new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              setIsVisible(entry.isIntersecting);
+            });
+          }, options)
+        : undefined;
+    }, [options]);
 
-    // useEffect(() => {
-    //   if (pictureRef?.current === null) return;
-    //   if (observer === null) return;
-    //   observer.observe(pictureRef.current);
-    //   return () => observer.disconnect();
-    // }, [pictureRef, options, observer]);
-
-    //! MEMO : 2つ目の実装方法。最適な実装方法
     useEffect(() => {
       if (pictureRef?.current === null) return;
+      if (observer === undefined) return;
+      observer.observe(pictureRef.current);
+      return () => observer.disconnect();
+    }, [pictureRef, options, observer]);
 
-      const pictureElement = pictureRef.current;
+    //! MEMO : 2つ目の実装方法。最適な実装方法
+    // useEffect(() => {
+    //   if (pictureRef?.current === null) return;
 
-      const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          setIsVisible(entry.isIntersecting);
-        });
-      }, options);
+    //   const pictureElement = pictureRef.current;
 
-      observer.observe(pictureElement);
+    //   const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+    //     entries.forEach((entry) => {
+    //       if (!entry.isIntersecting) return;
+    //       setIsVisible(entry.isIntersecting);
+    //     });
+    //   }, options);
 
-      return () => observer.unobserve(pictureElement);
-    }, [pictureRef, options]);
+    //   observer.observe(pictureElement);
+
+    //   return () => observer.unobserve(pictureElement);
+    // }, [pictureRef, options]);
 
     //! MEMO : 3つ目の実装方法
     // let observer: IntersectionObserver;
