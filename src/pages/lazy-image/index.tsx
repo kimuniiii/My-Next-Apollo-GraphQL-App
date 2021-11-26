@@ -73,6 +73,7 @@ const ImagePracticeComponent: NextPage = () => {
                   alt={`Alt Text ${idx}`}
                   width='200px'
                   height='200px'
+                  decoding='async'
                   options={{ rootMargin: '300px' }}
                 />
               );

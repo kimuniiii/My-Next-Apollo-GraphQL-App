@@ -12,8 +12,8 @@ type LazyImageProps = {
   width: string;
   /** 画像の縦幅 */
   height: string;
-  /** 画像の外枠の余白 */
-  margin?: string;
+  /** 画像のデコード処理 */
+  decoding: 'sync' | 'async' | 'auto';
   /** 画像の角丸 */
   borderRadius?: string;
   /** 画像のアスペクト比 */
@@ -27,7 +27,7 @@ type LazyImageProps = {
  * @param props {@link Props}
  */
 export const LazyImage = forwardRef<HTMLDivElement, LazyImageProps>(
-  ({ src, alt, width, height, borderRadius, objectFit, options, ...args }, ref) => {
+  ({ src, alt, width, height, decoding, borderRadius, objectFit, options, ...args }, ref) => {
     const [isVisible, setIsVisible] = useState(false);
     const pictureRef = useRef<HTMLPictureElement>(null);
 
@@ -105,6 +105,7 @@ export const LazyImage = forwardRef<HTMLDivElement, LazyImageProps>(
               alt={alt}
               width={width}
               height={height}
+              decoding={decoding}
               borderRadius={borderRadius}
               objectFit={objectFit}
               onLoad={onImageLoad}
@@ -121,6 +122,10 @@ LazyImage.displayName = 'LazyImage';
 const loaded = keyframes`
   0% {
     opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.5;
   }
 
   100% {
