@@ -58,7 +58,7 @@ export const HeadTemplate: NextPage<HeadTemplateProps> = ({
     ogpImageWidth: 1200,
     ogpImageHeight: 630,
     ogpUrl: 'https://my-next-apollo-graph-ql-app.vercel.app',
-    ogpImageUrl: 'https://my-next-apollo-graph-ql-app.vercel.app/images/company_top.png',
+    ogpImageUrl: 'https://my-next-apollo-graph-ql-app.vercel.app/images/react-ogp-image.webp',
   },
 }) => {
   console.log(pageOrigin);
