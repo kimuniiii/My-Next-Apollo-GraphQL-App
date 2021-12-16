@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { ChildComponent, MemoChildComponent } from 'src/components/memo';
 
 /**
  * @概要 React.memo と useCallback と useMemo の挙動を正しく理解するための Sample Page
@@ -9,6 +10,8 @@ import { useMemo } from 'react';
  * @説明3 useMemo : 関数を実行した結果をメモ化できるHooks
  */
 const MemoPage: NextPage = () => {
+  const [count, setCount] = useState(0);
+
   const sumFunction = (a: number, b: number) => {
     return a + b;
   };
@@ -45,7 +48,10 @@ const MemoPage: NextPage = () => {
       </Head>
       <header>Header</header>
       <main>MemoPage</main>
-      <button onClick={() => alert('clicked')}>ボタン</button>
+      <button onClick={() => setCount((prev) => prev + 1)}>Counter1</button>
+      <button onClick={() => setCount((prev) => prev + 2)}>Counter2</button>
+      <MemoChildComponent text='MemoChildComponent' />
+      <ChildComponent text='ChildComponent' />
       <footer>Footer</footer>
     </>
   );
