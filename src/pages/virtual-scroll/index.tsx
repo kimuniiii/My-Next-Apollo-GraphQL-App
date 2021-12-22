@@ -7,6 +7,7 @@ import { useVirtualScroll } from 'src/hooks/useVirtualScroll';
  * @説明 1階層目のdivはスクロールさせるための要素
  * @説明 2階層目のdivは事前に計算したリスト全体の高さを持っておく
  * @説明 3階層目のulがリスト要素です。この要素の配置を移動させることで、仮想スクロールを実現する
+ * @参考文献 https://zenn.dev/so_nishimura/articles/6a934ad066bedf
  */
 const VirtualScrollPage: NextPage = () => {
   const itemHeight = 50;
