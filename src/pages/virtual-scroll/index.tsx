@@ -4,9 +4,10 @@ import { useVirtualScroll } from 'src/hooks/useVirtualScroll';
 
 /**
  * @概要 仮想スクロールを理解するためのサンプルページ
- * @説明 1階層目のdivはスクロールさせるための要素
- * @説明 2階層目のdivは事前に計算したリスト全体の高さを持っておく
- * @説明 3階層目のulがリスト要素です。この要素の配置を移動させることで、仮想スクロールを実現する
+ * @説明1 1階層目のdivはスクロールさせるための要素（見える範囲を指定するためのmain）
+ * @説明2 2階層目のdivは事前に計算したリスト全体の高さを持っておく（スクロールする高さを指定するためのdiv）
+ * @説明3 3階層目のulがリスト要素です。この要素の配置を移動させることで、仮想スクロールを実現する（ListItemを置くUnOrderedList）
+ * @説明4 4階層目のliがリストアイテム要素です。
  * @参考文献 https://zenn.dev/so_nishimura/articles/6a934ad066bedf
  */
 const VirtualScrollPage: NextPage = () => {
@@ -30,6 +31,7 @@ const VirtualScrollPage: NextPage = () => {
         <title>仮想スクロールサンプルページ</title>
       </Head>
       <h1>仮想スクロールサンプルページ</h1>
+      {/** 見える範囲を指定するためのmain */}
       <main
         onScroll={handleScroll}
         style={{
@@ -40,6 +42,7 @@ const VirtualScrollPage: NextPage = () => {
           position: 'relative',
         }}
       >
+        {/** スクロールする高さを指定するためのdiv */}
         <div
           style={{
             height: arrayData.length * itemHeight,
@@ -48,6 +51,7 @@ const VirtualScrollPage: NextPage = () => {
             left: '50%',
           }}
         >
+          {/** ListItemを置くUnOrderedList */}
           <ul
             style={{
               margin: 0,
