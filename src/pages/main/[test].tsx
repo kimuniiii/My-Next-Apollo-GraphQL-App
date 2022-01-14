@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
 
-const Test: FC = () => {
-  return (
-    <>
-      <p>Test</p>
-    </>
-  );
+const DynamicRoutePage: NextPage = () => {
+  const router = useRouter();
+  const { pid } = router.query;
+
+  return <p>動的ルーティングページ : {pid}</p>;
 };
 
-export default Test;
+export default DynamicRoutePage;
