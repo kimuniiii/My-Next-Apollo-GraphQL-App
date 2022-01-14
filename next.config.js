@@ -6,10 +6,10 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 // next / image で外部URLの画像を使用するときに必要
-const imageLoader = {
+const nextConfig = {
   images: {
     domains: ['picsum.photos'],
   },
 };
 
-module.exports = withPlugins([withBundleAnalyzer, imageLoader]);
+module.exports = withPlugins([withBundleAnalyzer, nextConfig]);
