@@ -4,14 +4,10 @@ const app = express();
 const hostname = '127.0.0.1';
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/out/index.html');
-});
+// 静的アセットファイルを格納しているディレクトリを一気に読み込む
+app.use(express.static('out'));
 
-app.get('/recoil', (req, res) => {
-  res.sendFile(__dirname + '/out/recoil.html');
-});
-
+// 以下のGETリクエスト処理を記載することで動的ルーティングが可能になる
 app.get('/main/:test', (req, res) => {
   res.sendFile(__dirname + '/out/main/[test].html');
 });
