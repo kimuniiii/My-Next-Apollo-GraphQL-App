@@ -8,7 +8,11 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/out/index.html');
 });
 
-app.get('/main/*', (req, res) => {
+app.get('/recoil', (req, res) => {
+  res.sendFile(__dirname + '/out/recoil.html');
+});
+
+app.get('/main/:test', (req, res) => {
   res.sendFile(__dirname + '/out/main/[test].html');
 });
 
