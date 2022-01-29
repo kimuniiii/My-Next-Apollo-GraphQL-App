@@ -1,13 +1,15 @@
-## 概要
+# 概要
 
-Apollo Client + GraphQL 練習用リポジトリ
+技術検証用リポジトリ
+
+---
 
 ## 技術選定
 
 - React
 - TypeScript
 - Next.js
-- Emotion
+- styled-components
 - Recoil
 - Apollo Client
 - GraphQL
