@@ -12,6 +12,7 @@ const TopPage: NextPage = () => {
       </Head>
 
       <StDivTopFlexContainer>
+        <h1>技術検証用トップページ</h1>
         <Link href='/lazy-image' passHref>
           <StAnchorLink>LazyImageの検証ページへ遷移する</StAnchorLink>
         </Link>
@@ -34,9 +35,12 @@ export default TopPage;
 const StDivTopFlexContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
 `;
 
 const StAnchorLink = styled.a`
+  width: fit-content;
   color: ${ColorPalette.Blue100};
 `;
