@@ -8,31 +8,32 @@ import { CommonTemplate } from 'src/components/templates/CommonTemplate';
 
 const TopPage: NextPage = () => {
   return (
-    <StRoot>
+    <>
       <Head>
         <title>Topページ</title>
       </Head>
+
       <CommonTemplate>
         <StFirstSection>
           <StTitle>Topページ</StTitle>
-          <Link href='/posts' passHref>
-            <StFirstLink>投稿リストページへ遷移します</StFirstLink>
+          <Link href='/posts'>
+            <a>投稿リストページへ遷移します</a>
           </Link>
         </StFirstSection>
+
         <StSecondSection>
           <h1 css='color: red'>Slide2</h1>
         </StSecondSection>
+
         <StThirdSection>
           <h1 css='color: yellow'>Slide3</h1>
         </StThirdSection>
       </CommonTemplate>
-    </StRoot>
+    </>
   );
 };
 
 export default TopPage;
-
-const StRoot = styled.div``;
 
 const StFirstSection = styled.section`
   display: flex;
@@ -61,8 +62,6 @@ const StThirdSection = styled.section`
   height: 100vh;
   background-color: #6bdcff;
 `;
-
-const StFirstLink = styled.a``;
 
 const StTitle = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
