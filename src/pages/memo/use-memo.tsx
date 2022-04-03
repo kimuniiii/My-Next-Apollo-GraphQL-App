@@ -35,7 +35,7 @@ const UseMemoPage: NextPage = () => {
       <h1>useCallbackに関して検証するページ</h1>
 
       <section>
-        <h1>Propsで「プリミティブ値と関数」を子供に送り、useCallbackでラップしてない場合</h1>
+        <h1>Propsで「プリミティブ値と関数と配列」を子供に送る場合</h1>
 
         <button onClick={() => setCount((prev) => prev + 1)}>Counter1</button>
         <button onClick={() => setCount((prev) => prev + 2)}>Counter2</button>
