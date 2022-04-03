@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 export type MemoChildComponentProps = {
   text: string;
-  count: number;
+  count?: number;
   onClick?: () => void;
 } & JSX.IntrinsicElements['div'];
 
@@ -12,7 +12,8 @@ export type MemoChildComponentProps = {
  */
 export const MemoChildComponent = memo<MemoChildComponentProps>(
   ({ text, count, onClick, ...args }) => {
-    console.log('MemoChildComponentは再レンダリングされない');
+    console.log('MemoChildComponent');
+
     return (
       <div onClick={onClick} {...args}>
         {text} : {count}

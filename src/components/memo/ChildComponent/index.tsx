@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 export type ChildComponentProps = {
   text: string;
-  count: number;
+  count?: number;
   onClick?: () => void;
 } & JSX.IntrinsicElements['div'];
 
@@ -11,7 +11,8 @@ export type ChildComponentProps = {
  * @param props {@link ChildComponentProps}
  */
 export const ChildComponent = ({ text, count, onClick, ...args }: ChildComponentProps) => {
-  console.log('ChildComponentは再レンダリングされる');
+  console.log('ChildComponent');
+
   return (
     <div onClick={onClick} {...args}>
       {text} : {count}

@@ -1,8 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useCallback, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { ChildComponent } from 'src/components/memo/ChildComponent';
-// import { ChildComponent } from 'src/components/memo/ChildComponent';
 import { MemoChildComponent } from 'src/components/memo/MemoChildComponent';
 
 /**
@@ -20,21 +19,17 @@ const MemoPage: NextPage = () => {
         <title>Reactのmemo化を検証するページ</title>
       </Head>
 
-      <h1>Reactのメモ化に関して検証するページ</h1>
+      <h1>React.memoに関して検証するページ</h1>
 
-      <button onClick={() => setCount((prev) => prev + 1)}>Counter1</button>
-      <button onClick={() => setCount((prev) => prev + 2)}>Counter2</button>
+      <section>
+        <h1>Propsで「プリミティブ値」だけを子供に送る場合</h1>
 
-      <MemoChildComponent
-        text='MemoChildComponent'
-        count={count}
-        onClick={() => alert('MemoChildComponent Clicked')}
-      />
-      <ChildComponent
-        text='ChildComponent'
-        count={count}
-        onClick={() => alert('ChildComponent Clicked')}
-      />
+        <button onClick={() => setCount((prev) => prev + 1)}>Counter1</button>
+        <button onClick={() => setCount((prev) => prev + 2)}>Counter2</button>
+
+        <MemoChildComponent text='MemoChildComponent' />
+        <ChildComponent text='ChildComponent' />
+      </section>
     </>
   );
 };
