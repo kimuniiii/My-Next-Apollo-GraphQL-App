@@ -25,8 +25,16 @@ const MemoPage: NextPage = () => {
       <button onClick={() => setCount((prev) => prev + 1)}>Counter1</button>
       <button onClick={() => setCount((prev) => prev + 2)}>Counter2</button>
 
-      <MemoChildComponent text='MemoChildComponent' />
-      <ChildComponent text='ChildComponent' />
+      <MemoChildComponent
+        text='MemoChildComponent'
+        count={count}
+        onClick={() => alert('MemoChildComponent Clicked')}
+      />
+      <ChildComponent
+        text='ChildComponent'
+        count={count}
+        onClick={() => alert('ChildComponent Clicked')}
+      />
     </>
   );
 };
