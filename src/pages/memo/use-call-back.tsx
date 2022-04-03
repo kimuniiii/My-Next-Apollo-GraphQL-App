@@ -13,8 +13,16 @@ import { MemoChildComponent } from 'src/components/memo/MemoChildComponent';
 const UseCallbackPage: NextPage = () => {
   const [count, setCount] = useState(0);
 
-  const memoChildFunction = useCallback(() => alert('MemoChildComponent Clicked'), []);
-  const childFunction = useCallback(() => alert('ChildComponent Clicked'), []);
+  const memoChildFunctionA = useCallback(() => alert('MemoChildComponent Clicked'), []);
+  const memoChildFunctionB = () => alert('MemoChildComponent Clicked');
+  const childFunctionA = useCallback(() => alert('ChildComponent Clicked'), []);
+  const childFunctionB = () => alert('ChildComponent Clicked');
+
+  // 以下の厳密等価演算子の比較結果はすべて`true`になる
+  console.log(memoChildFunctionA === memoChildFunctionA);
+  console.log(memoChildFunctionB === memoChildFunctionB);
+  console.log(childFunctionA === childFunctionA);
+  console.log(childFunctionB === childFunctionB);
 
   return (
     <>
@@ -30,8 +38,8 @@ const UseCallbackPage: NextPage = () => {
         <button onClick={() => setCount((prev) => prev + 1)}>Counter1</button>
         <button onClick={() => setCount((prev) => prev + 2)}>Counter2</button>
 
-        <MemoChildComponent text='MemoChildComponent' onClick={memoChildFunction} />
-        <ChildComponent text='ChildComponent' onClick={childFunction} />
+        <MemoChildComponent text='MemoChildComponent' onClick={memoChildFunctionA} />
+        <ChildComponent text='ChildComponent' onClick={childFunctionA} />
       </section>
     </>
   );
