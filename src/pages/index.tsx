@@ -11,28 +11,32 @@ const TopPage: NextPage = () => {
         <title>技術検証用トップページ</title>
       </Head>
 
-      <StDivTopFlexContainer>
+      <StSectionTopFlexContainer>
         <h1>技術検証用トップページ</h1>
+
         <Link href='/lazy-image' passHref>
           <StAnchorLink>LazyImageの検証ページへ遷移する</StAnchorLink>
         </Link>
+
         <Link href='/memo' passHref>
           <StAnchorLink>Reactのメモ化の検証ページへ遷移する</StAnchorLink>
         </Link>
+
         <Link href='/recoil' passHref>
           <StAnchorLink>Recoilの検証ページへ遷移する</StAnchorLink>
         </Link>
+
         <Link href='/virtual-scroll' passHref>
           <StAnchorLink>仮想スクロールの検証ページへ遷移する</StAnchorLink>
         </Link>
-      </StDivTopFlexContainer>
+      </StSectionTopFlexContainer>
     </>
   );
 };
 
 export default TopPage;
 
-const StDivTopFlexContainer = styled.div`
+const StSectionTopFlexContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
