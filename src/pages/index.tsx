@@ -29,6 +29,10 @@ const TopPage: NextPage = () => {
         <Link href='/virtual-scroll' passHref>
           <StAnchorLink>仮想スクロールの検証ページへ遷移する</StAnchorLink>
         </Link>
+
+        <Link href='/carousel' passHref>
+          <StAnchorLink>InfinityCarouselの検証ページへ遷移する</StAnchorLink>
+        </Link>
       </StSectionTopFlexContainer>
     </>
   );
