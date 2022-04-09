@@ -33,6 +33,10 @@ const TopPage: NextPage = () => {
         <Link href='/carousel' passHref>
           <StAnchorLink>InfinityCarouselの検証ページへ遷移する</StAnchorLink>
         </Link>
+
+        <Link href='/url-copy' passHref>
+          <StAnchorLink>URLコピーの検証ページへ遷移する</StAnchorLink>
+        </Link>
       </StSectionTopFlexContainer>
     </>
   );
