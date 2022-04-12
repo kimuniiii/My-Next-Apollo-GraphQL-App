@@ -4,8 +4,9 @@ import Head from 'next/head';
 const TopPage: NextPage = () => {
   const handleClick = () => {
     const currentUrl = location.href;
-    navigator.clipboard.writeText(currentUrl);
-    alert('URLをコピーしました');
+    navigator.clipboard.writeText(currentUrl).then(() => {
+      alert('URLをコピーしました');
+    });
   };
 
   return (
