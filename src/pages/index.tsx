@@ -37,6 +37,10 @@ const TopPage: NextPage = () => {
         <Link href='/url-copy' passHref>
           <StAnchorLink>URLコピーの検証ページへ遷移する</StAnchorLink>
         </Link>
+
+        <Link href='/history' passHref>
+          <StAnchorLink>HistoryAPIの検証ページへ遷移する</StAnchorLink>
+        </Link>
       </StSectionTopFlexContainer>
     </>
   );
