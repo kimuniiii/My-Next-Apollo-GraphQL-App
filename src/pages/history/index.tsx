@@ -12,16 +12,20 @@ const History = () => {
   };
 
   const historyPushState = () => {
+    if (typeof window === 'undefined') return;
     const state = { page_id: 1, user_id: 1 };
     const url = new URL(window.location.href);
     url.searchParams.set('foo', 'bar');
+    // @ts-ignore
     window.history.pushState(state, '', url);
   };
 
   const historyPushState2 = () => {
+    if (typeof window === 'undefined') return;
     const state = { page_id: 2, user_id: 2 };
     const url = new URL(window.location.href);
     url.searchParams.set('baseball', 'soccer');
+    // @ts-ignore
     window.history.pushState(state, '', url);
   };
 
