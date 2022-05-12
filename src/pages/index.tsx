@@ -41,6 +41,10 @@ const TopPage: NextPage = () => {
         <Link href='/history' passHref>
           <StAnchorLink>HistoryAPIの検証ページへ遷移する</StAnchorLink>
         </Link>
+
+        <Link href='/modal-animation' passHref>
+          <StAnchorLink>Modal Animationの検証ページへ遷移する</StAnchorLink>
+        </Link>
       </StSectionTopFlexContainer>
     </>
   );
