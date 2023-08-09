@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-// import Image from 'next/image';
+import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -14,6 +14,7 @@ const ImagePracticeComponent: NextPage = () => {
         pageTitle='画像最適化検証ページ'
         pageDescription='画像の最適化の検証を行うための動作確認ページです'
       />
+
       <CommonTemplate>
         <StFlexColumn>
           <h1>通常のimgタグ</h1>
@@ -42,7 +43,7 @@ const ImagePracticeComponent: NextPage = () => {
         <StFlexColumn>
           <h1>Next.js Imageコンポーネント</h1>
           <StImageContainer>
-            {/* <Image
+            <Image
               src='https://picsum.photos/id/203/200/200'
               alt='Alt Text 203'
               width='200px'
@@ -59,7 +60,7 @@ const ImagePracticeComponent: NextPage = () => {
               alt='Alt Text 206'
               width='200px'
               height='200px'
-            /> */}
+            />
           </StImageContainer>
         </StFlexColumn>
 
