@@ -14,12 +14,12 @@ yarn install
 yarn dev
 ```
 
+---
+
 ## 技術選定
 
-- React
-- TypeScript
-- Next.js
-- styled-components
-- Recoil
-- Apollo Client
-- GraphQL
+- React : v17.0.1
+- TypeScript : v4.3.2
+- Next.js : v11.0.0
+- styled-components : v5.2.1
+- Recoil : v0.5.2
